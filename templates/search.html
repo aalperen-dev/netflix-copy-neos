@@ -1,0 +1,25 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+    {% include 'includes/navbar.html' %}
+
+    <div class="container mt-5 pt-5">
+        <h3 class="mt-5 text-light">Filmler</h3>
+        <div class="row">
+            {% if filmler|length > 0 %}
+                {% for film in filmler %}         
+                <div class="col-md-2 col-4 mt-1">
+                    <a href="video.html">
+                        <img src="{{film.resim.url}}" class="w-100" alt="">
+                    </a>
+                </div>  
+            {% endfor %}
+            
+            {% else %}
+            <h4 class="mt-5 text-light">Film mevcut değil!!!!</h4>
+            {% endif %}
+        </div>
+    </div>
+    
+    
+{% endblock content %}
